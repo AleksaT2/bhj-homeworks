@@ -25,6 +25,20 @@ class Game {
       При неправильном вводе символа - this.fail();
       DOM-элемент текущего символа находится в свойстве this.currentSymbol.
      */
+    let curSymb = this.currentSymbol.textContent.toLowerCase().charCodeAt(0);
+    let comparing = (event) => {
+        curSymb = this.currentSymbol.textContent.charCodeAt(0);
+        let symb = event.key.toLowerCase().charCodeAt(0);
+        if (symb == curSymb) {
+          this.success();
+        }
+        else {
+          this.fail();
+        }
+    }
+    
+    document.addEventListener('keypress', comparing);
+  
   }
 
   success() {
