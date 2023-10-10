@@ -14,17 +14,7 @@ function addProduct(i) {
 </div>`);
 }
 
-function addAmountProduct(i) {
-    let cardList = document.getElementsByClassName("cart__product");
-    let productCount = document.getElementsByClassName("cart__product-count");
-    for (let j = 0; j < cardList.length; ++j) {
-        if (cardList[j].dataset.id == productsList[i].dataset.id) {
-            productCount[j].textContent = valueList[i].textContent;
-            return 1;
-        }
-    }
-    return 0;
-}
+
 
 for (let i = 0; i < valueList.length; ++i) {
     plusList[i].addEventListener("click", () => {
@@ -38,9 +28,15 @@ for (let i = 0; i < valueList.length; ++i) {
     });
 
     addCartBtnList[i].addEventListener("click", () => {
-        if (addAmountProduct(i) == 0) {
+        let cartList = Array.from(document.getElementsByClassName("cart__product"));
+        let productCount = document.getElementsByClassName("cart__product-count");
+        const productInCard = cartList.find((element) => element.dataset.id == productsList[i].dataset.id);
+        console.log(productInCard);
+        if (productInCard) {
+            productCount[i].textContent = +valueList[i].textContent + +productCount[i].textContent;
+        } else {
             addProduct(i);
-        }
+}
     });
 }
 

@@ -5,8 +5,8 @@ let tasks, deleteBtn;
 
 
 
-function addTask() {
-    if (inputBox.value) {
+function addTask(event) {
+    if (inputBox.value.trim()) {
         event.preventDefault();
         tasksList.insertAdjacentHTML(`beforeend`, `
             <div class="task">
@@ -22,11 +22,7 @@ function addTask() {
 
 }
 
-inputBox.addEventListener("keydown", (event) => {
-    if (event.key == "Enter") {
-        addTask();
-    }
-})
+
 
 inputBtn.addEventListener("click", addTask);
 
