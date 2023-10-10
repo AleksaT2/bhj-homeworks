@@ -31,7 +31,7 @@ for (let i = 0; i < valueList.length; ++i) {
         let cartList = Array.from(document.getElementsByClassName("cart__product"));
         let productCount = document.getElementsByClassName("cart__product-count");
         const productInCard = cartList.find((element) => element.dataset.id == productsList[i].dataset.id);
-        console.log(productInCard);
+        
         if (productInCard) {
             productCount[i].textContent = +valueList[i].textContent + +productCount[i].textContent;
         } else {
