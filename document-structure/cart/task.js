@@ -29,11 +29,10 @@ for (let i = 0; i < valueList.length; ++i) {
 
     addCartBtnList[i].addEventListener("click", () => {
         let cartList = Array.from(document.getElementsByClassName("cart__product"));
-        let productCount = document.getElementsByClassName("cart__product-count");
         const productInCard = cartList.find((element) => element.dataset.id == productsList[i].dataset.id);
-        
         if (productInCard) {
-            productCount[i].textContent = +valueList[i].textContent + +productCount[i].textContent;
+            let productCount = productInCard.querySelector(".cart__product-count");
+            productCount.textContent = +valueList[i].textContent + +productCount.textContent;
         } else {
             addProduct(i);
 }

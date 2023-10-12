@@ -6,8 +6,8 @@ let tasks, deleteBtn;
 
 
 function addTask(event) {
+    event.preventDefault();
     if (inputBox.value.trim()) {
-        event.preventDefault();
         tasksList.insertAdjacentHTML(`beforeend`, `
             <div class="task">
             <div class="task__title">
